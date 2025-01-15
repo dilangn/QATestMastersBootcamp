@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-15T20:15:59.845Z",
+    "end": "2025-01-15T20:16:00.696Z",
+    "duration": 851,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7f209122-558a-4434-a9df-fcbf6dacb7a9",
+      "title": "",
+      "fullFile": "cypress\\e2e\\user\\get_user.cy.js",
+      "file": "cypress\\e2e\\user\\get_user.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f1ecb2a1-8a4a-4bf1-9821-1fc1a7773304",
+          "title": "User - Get User by Username",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should retrieve user by valid username",
+              "fullTitle": "User - Get User by Username should retrieve user by valid username",
+              "timedOut": null,
+              "duration": 369,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', '/user/user1').then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.username).to.eq('user1');\n});",
+              "err": {},
+              "uuid": "89349c14-1eea-4ec2-a2c3-a004cb3883ca",
+              "parentUUID": "f1ecb2a1-8a4a-4bf1-9821-1fc1a7773304",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return 404 for non-existent user",
+              "fullTitle": "User - Get User by Username should return 404 for non-existent user",
+              "timedOut": null,
+              "duration": 332,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: '/user/unknownUser',\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(404);\n});",
+              "err": {},
+              "uuid": "fd10455c-a884-46bb-84a6-2edba68c99bb",
+              "parentUUID": "f1ecb2a1-8a4a-4bf1-9821-1fc1a7773304",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "89349c14-1eea-4ec2-a2c3-a004cb3883ca",
+            "fd10455c-a884-46bb-84a6-2edba68c99bb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 701,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

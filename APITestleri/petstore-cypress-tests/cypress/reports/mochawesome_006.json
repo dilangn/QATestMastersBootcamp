@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-15T20:15:34.574Z",
+    "end": "2025-01-15T20:15:35.221Z",
+    "duration": 647,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5529fc95-e99f-4803-a3c6-1d66b7c3972f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\store\\get_order.cy.js",
+      "file": "cypress\\e2e\\store\\get_order.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "db59e74d-f016-4921-a824-9f9177aa04ae",
+          "title": "Store - Get Order by ID",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should retrieve an order by valid ID",
+              "fullTitle": "Store - Get Order by ID should retrieve an order by valid ID",
+              "timedOut": null,
+              "duration": 351,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', '/store/order/3').then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.id).to.eq(3);\n});",
+              "err": {},
+              "uuid": "f7516751-f2fd-4167-be83-a0cef94562f9",
+              "parentUUID": "db59e74d-f016-4921-a824-9f9177aa04ae",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return 404 for a non-existent order",
+              "fullTitle": "Store - Get Order by ID should return 404 for a non-existent order",
+              "timedOut": null,
+              "duration": 166,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: '/store/order/99999',\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(404);\n});",
+              "err": {},
+              "uuid": "97cd3490-fdfd-4ec6-be70-b5b99794cbd0",
+              "parentUUID": "db59e74d-f016-4921-a824-9f9177aa04ae",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f7516751-f2fd-4167-be83-a0cef94562f9",
+            "97cd3490-fdfd-4ec6-be70-b5b99794cbd0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 517,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

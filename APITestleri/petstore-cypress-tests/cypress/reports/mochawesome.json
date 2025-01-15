@@ -1,0 +1,104 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-15T20:20:20.932Z",
+    "end": "2025-01-15T20:20:21.534Z",
+    "duration": 602,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c351d4f2-b9b4-46ba-8eef-60becb5a4356",
+      "title": "",
+      "fullFile": "cypress\\e2e\\user\\update_user.cy.js",
+      "file": "cypress\\e2e\\user\\update_user.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a3c0865c-7582-49b4-ba53-758c640eceb5",
+          "title": "User - Update User",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should update user information",
+              "fullTitle": "User - Update User should update user information",
+              "timedOut": null,
+              "duration": 419,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('PUT', '/user/user1', {\n  id: 1001,\n  username: 'user1',\n  firstName: 'John Updated',\n  lastName: 'Doe Updated',\n  email: 'john_updated@example.com',\n  password: 'NewPass123',\n  phone: '555-0000',\n  userStatus: 1\n}).then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "d5813770-8d07-4494-889a-9622fefed904",
+              "parentUUID": "a3c0865c-7582-49b4-ba53-758c640eceb5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d5813770-8d07-4494-889a-9622fefed904"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 419,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

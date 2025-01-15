@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-01-15T20:15:25.903Z",
+    "end": "2025-01-15T20:15:27.103Z",
+    "duration": 1200,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "66cdf2c2-d096-4753-9cce-fb5a3d911e8e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\pet\\update_pet.cy.js",
+      "file": "cypress\\e2e\\pet\\update_pet.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "eede340c-0868-40c5-980c-d606a38320cf",
+          "title": "Pet - Update Existing Pet",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should update an existing pet with valid data",
+              "fullTitle": "Pet - Update Existing Pet should update an existing pet with valid data",
+              "timedOut": null,
+              "duration": 373,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('PUT', '/pet', {\n  id: 12345,\n  category: {\n    id: 1,\n    name: 'Dogs'\n  },\n  name: 'Maximus',\n  photoUrls: ['https://example.com/photo2.jpg'],\n  tags: [{\n    id: 10,\n    name: 'Friendly'\n  }],\n  status: 'sold'\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('name', 'Maximus');\n});",
+              "err": {},
+              "uuid": "7e103f67-388e-408d-82ee-8b1e33f19bf0",
+              "parentUUID": "eede340c-0868-40c5-980c-d606a38320cf",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return an error for invalid data",
+              "fullTitle": "Pet - Update Existing Pet should return an error for invalid data",
+              "timedOut": null,
+              "duration": 612,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'PUT',\n  url: '/pet',\n  failOnStatusCode: false,\n  body: {\n    id: 12345,\n    name: ''\n  }\n}).then(response => {\n  expect(response.status).to.eq(400);\n});",
+              "err": {
+                "message": "AssertionError: expected 200 to equal 400",
+                "estack": "AssertionError: expected 200 to equal 400\n    at Context.eval (webpack://petstore-cypress-tests/./cypress/e2e/pet/update_pet.cy.js:27:33)",
+                "diff": "- 200\n+ 400\n"
+              },
+              "uuid": "475e6965-4361-4175-b33c-c21f51df7dc6",
+              "parentUUID": "eede340c-0868-40c5-980c-d606a38320cf",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7e103f67-388e-408d-82ee-8b1e33f19bf0"
+          ],
+          "failures": [
+            "475e6965-4361-4175-b33c-c21f51df7dc6"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 985,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
