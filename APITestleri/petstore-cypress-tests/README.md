@@ -6,7 +6,7 @@ Bu proje, **Swagger Petstore API** uç noktalarını Cypress kullanarak otomatik
 
 ### 1. Projeyi Klonlayın
 ```bash
-git clone https://github.com/kullaniciadi/petstore-cypress-tests.git
+git clone https://github.com/dilangn/petstore-cypress-tests.git
 cd petstore-cypress-tests
 ```
 
