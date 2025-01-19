@@ -24,24 +24,23 @@ yarn
 ```
 
 ## Kullanım
-
-### Grafik Arayüz (GUI) ile Test Çalıştırma
-
-   npx cypress open
-
-Açılan arayüzde test dosyalarınızı seçerek interaktif olarak çalıştırabilirsiniz.
-
 ### Komut Satırından (Headless Mod) Test Çalıştırma
-
-   npx cypress run
+```bash
+   npm run test
+```
 
 Terminal çıktısı üzerinde tüm test sonuçlarını görebilirsiniz.
+
+```bash
+   npm run allure
+```
+
+Allure raporunu görebilirsiniz
 
 ## Proje Yapısı
 
 ```
 cypress/
-├─ downloads/
 ├─ e2e/
 ├─ base/
 │  └─ BaseLibrary.js
@@ -62,7 +61,6 @@ package.json
 readme.md
 ```
 
-- cypress/downloads/: Testler sırasında indirilen dosyaları barındıran klasör.
 - cypress/e2e/: Uçtan uca testler veya ek yapılandırmalar için kullanılabilecek klasör.
 - cypress/base/BaseLibrary.js: Sık kullanılan fonksiyonlar veya kütüphane fonksiyonlarını tanımlayabileceğiniz dosya.
 - cypress/pages/: Page Object Model yaklaşımı ile her sayfa için ayrı dosyalar (LoginPage.js, MainPage.js vb.).

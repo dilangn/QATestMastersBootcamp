@@ -3,24 +3,30 @@ import AccountInformationPage from "../pages/AccountInformationPage";
 import LoginPage from "../pages/LoginPage"
 import MainPage from "../pages/MainPage";
 
-describe('Login Tests', () => {
-
+describe('Login Tests', { env: { allure: true } }, () => {
     const loginPage = new LoginPage();
     const baseLibrary = new BaseLibrary();
     const mainPage = new MainPage();
     const accountInformationPage = new AccountInformationPage();
 
     beforeEach(() => {
+        cy.allure()
+            .epic('Login Suite')
+            .feature('Authentication')
+            .severity('critical');
+
         cy.viewport(1920, 1080)
-        cy.visit('https://www.manuka.com.tr/uye-girisi-sayfasi', {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36',
-                'Referer': 'https://www.manuka.com.tr'
-            }
-        })
+        cy.visit('/uye-girisi-sayfasi')
     })
 
     it('Başarılı kullanıcı girişi kontrolü', () => {
+        cy.allure()
+            .story('Positive Login Test')
+            .severity('critical')
+            .description('Geçerli kullanıcı bilgileriyle başarılı giriş testi');
+
+        // Her test adımını Allure'a kaydet
+        cy.allure().startStep('Login sayfasını aç');
 
         var mail = "fulmilekki@gufum.com"
         var welcomeMessage = "Merhaba Test Test";
@@ -33,9 +39,15 @@ describe('Login Tests', () => {
         mainPage.clickAccount();
         baseLibrary.wait(5000)
         accountInformationPage.accountControl(welcomeMessage)
+
+        cy.allure().endStep();
     })
 
     it('Başarısız kullanıcı girişi kontrolü', () => {
+        cy.allure().feature('Başarısız kullanıcı girişi kontrolü');
+        cy.allure().severity('critical');
+
+        cy.allure().startStep('Başarısız kullanıcı girişi kontrolü');
 
         var mail = "fulmilekki@gufum.com"
 
@@ -44,15 +56,20 @@ describe('Login Tests', () => {
             .clickLogin()
             .errorMessageControl("E-mail veya şifre bilgileriniz hatalı.")
 
+        cy.allure().endStep();
 
     })
 
     it('Boş karakter kontrolü', () => {
-        var mail = "fulmilekki@gufum.com"
+        cy.allure().startStep('Boş karakter kontrolü');
+
+        var mail = " "
 
         loginPage.fillEmail(mail)
             .clearPassword()
             .clickLogin()
-            .errorMessageControl("E-mail veya şifre bilgileriniz hatalı.")
+            .errorMessageControl("Giriş bilgileriniz hatalı.")
+
+        cy.allure().endStep();
     })
 })

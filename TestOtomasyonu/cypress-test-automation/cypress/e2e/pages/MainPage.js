@@ -1,7 +1,7 @@
 class MainPage {
  
     clickAccount(){
-        cy.visit('https://www.manuka.com.tr/uye-girisi-sayfasi');
+        cy.visit('/uye-girisi-sayfasi');
         return this;
     }
 }
